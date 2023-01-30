@@ -11,4 +11,4 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install --upgrade pip
 RUN pip install git+https://github.com/openai/whisper.git
-RUN pip install yt-dlp ffmpeg
+RUN pip install yt-dlp ffmpeg-python
