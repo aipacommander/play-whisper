@@ -14,9 +14,10 @@ if __name__ == '__main__':
 
     whisper_streaming = WhisperStreaming()
     sender_buffer = out
+    buffer_len = SAMPLE_RATE * 5 * 2
     while len(sender_buffer) > 0:
-        set_data = sender_buffer[:SAMPLE_RATE*5*2]
+        set_data = sender_buffer[:buffer_len]
         whisper_streaming.set_data(set_data)
-        sender_buffer = sender_buffer[SAMPLE_RATE*5*2:]
+        sender_buffer = sender_buffer[buffer_len:]
 
-    whisper_streaming.get_result()['text']
+    print(whisper_streaming.get_result()['text'])
